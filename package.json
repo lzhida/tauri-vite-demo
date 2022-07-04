@@ -8,10 +8,20 @@
     "dev": "vite",
     "format": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,css,less,scss,json,md}",
     "preview": "vite preview",
+    "prepare": "husky install",
     "tauri": "tauri",
     "release": "standard-version",
     "release-minor": "standard-version --release-as minor",
     "release-patch": "standard-version --release-as patch"
+  },
+  "lint-staged": {
+    "*.{js,vue,ts,jsx,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{vue,ts,tsx,js,jsx,css,less,scss,json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@tauri-apps/api": "^1.0.1",
@@ -26,6 +36,8 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.1.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "standard-version": "^9.5.0",
     "typescript": "^4.5.4",
