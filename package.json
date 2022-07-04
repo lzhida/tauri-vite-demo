@@ -4,15 +4,23 @@
   "version": "0.0.0",
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
+    "commit": "git add . && npm lint && git cz",
     "eslint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "dev": "vite",
     "format": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,css,less,scss,json,md}",
+    "genlog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "lint": "lint-staged",
     "preview": "vite preview",
     "prepare": "husky install",
     "tauri": "tauri",
     "release": "standard-version",
     "release-minor": "standard-version --release-as minor",
     "release-patch": "standard-version --release-as patch"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog-zh"
+    }
   },
   "lint-staged": {
     "*.{js,vue,ts,jsx,tsx}": [
@@ -28,10 +36,15 @@
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
     "@tauri-apps/cli": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^5.30.4",
     "@typescript-eslint/parser": "^5.30.4",
     "@vitejs/plugin-vue": "^2.3.3",
+    "commitizen": "^4.2.4",
+    "conventional-changelog-cli": "^2.2.2",
+    "cz-conventional-changelog-zh": "^0.0.2",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
