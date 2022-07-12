@@ -33,8 +33,10 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.0.1",
+    "axios": "^0.27.2",
     "element-plus": "^2.2.9",
     "pinia": "^2.0.15",
+    "qs": "^6.11.0",
     "vue": "^3.2.25",
     "vue-i18n": "^9.1.10",
     "vue-router": "^4.1.2"
@@ -43,6 +45,7 @@
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@tauri-apps/cli": "^1.0.2",
+    "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^5.30.4",
     "@typescript-eslint/parser": "^5.30.4",
     "@vitejs/plugin-vue": "^2.3.3",
