@@ -1,0 +1,19 @@
+<!--
+ * @Description: 首页
+ * @Author: zhidal
+ * @Date: 2022-07-12 10:27:22
+ * @LastEditors: zhidal
+ * @LastEditTime: 2022-07-12 10:33:37
+-->
+
+<template>
+  <div>
+    <img alt="Vue logo" src="@/assets/logo.png" />
+    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  </div>
+</template>
+
+<script setup lang="ts">
+  import HelloWorld from '@/components/HelloWorld.vue';
+</script>
+<style lang="less" scoped></style>

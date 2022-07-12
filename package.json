@@ -36,7 +36,8 @@
     "element-plus": "^2.2.9",
     "pinia": "^2.0.15",
     "vue": "^3.2.25",
-    "vue-i18n": "^9.1.10"
+    "vue-i18n": "^9.1.10",
+    "vue-router": "^4.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
