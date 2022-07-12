@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.0.1",
+    "pinia": "^2.0.15",
     "vue": "^3.2.25"
   },
   "devDependencies": {

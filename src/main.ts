@@ -1,4 +1,10 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import { useStore } from './store';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+
+// pinia
+useStore(app);
+
+app.mount('#app');
