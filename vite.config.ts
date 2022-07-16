@@ -41,4 +41,11 @@ export default ({ mode }) =>
         watchFiles: true, // 监视文件更改
       }),
     ],
+    css: {
+      preprocessorOptions: {
+        less: {
+          javascriptEnabled: true,
+        },
+      },
+    },
   });
