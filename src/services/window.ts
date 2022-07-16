@@ -3,11 +3,11 @@
  * @Author: zhidal
  * @Date: 2022-07-16 14:09:48
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-16 14:26:23
+ * @LastEditTime: 2022-07-16 17:00:16
  */
 
 import type { Monitor, WebviewWindow } from '@tauri-apps/api/window';
-import window from '@tauri-apps/api/window';
+import * as window from '@tauri-apps/api/window';
 
 /**
  * @description: 获取系统所有可以用的监视器
