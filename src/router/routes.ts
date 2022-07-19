@@ -3,12 +3,13 @@
  * @Author: zhidal
  * @Date: 2022-04-07 17:38:03
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-16 16:51:57
+ * @LastEditTime: 2022-07-18 14:11:33
  */
 import HomePage from '@/views/HomePage.vue';
 import { RouteRecordRaw } from 'vue-router';
 import ExampleHome from '@/views/Example/ExampleHome.vue';
 import ExampleWindow from '@/views/Example/ExampleWindow.vue';
+import ExampleIPC from '@/views/Example/ExampleIPC.vue';
 import { RouteName, RoutePath } from '@/enums/example';
 
 const routes: RouteRecordRaw[] = [
@@ -27,6 +28,11 @@ const routes: RouteRecordRaw[] = [
         path: RoutePath.Window,
         name: RouteName.Window,
         component: ExampleWindow,
+      },
+      {
+        path: RoutePath.IPC,
+        name: RouteName.IPC,
+        component: ExampleIPC,
       },
     ],
   },
