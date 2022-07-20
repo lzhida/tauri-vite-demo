@@ -3,5 +3,8 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode", // 默认格式化工具选择prettier
   "editor.codeActionsOnSave": {
     "source.fixAll": true
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
   }
 }
