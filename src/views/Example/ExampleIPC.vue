@@ -3,28 +3,41 @@
  * @Author: zhidal
  * @Date: 2022-07-18 14:10:23
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-21 10:13:06
+ * @LastEditTime: 2022-07-21 14:19:51
 -->
 
 <template>
-  <div>
-    <el-button type="primary" @click="handleInvoke">调用invoke</el-button>
-    <el-button type="primary" @click="handleAvaiablePorts">
-      获取串口列表
-    </el-button>
-    <el-button type="primary" @click="handleOpen"> 创建串口 </el-button>
-    <el-button type="primary" @click="handleClose"> 关闭串口 </el-button>
-    <el-button type="primary" @click="handleWrite"> 写入串口 </el-button>
-    <el-button type="primary" @click="handleRead"> 读取串口 </el-button>
-    <el-button type="primary" @click="handleListen">
-      添加读取串口监听
-    </el-button>
+  <div class="example_window">
     <div>
-      <el-select v-model="path">
-        <el-option v-for="item in pathList" :key="item" :value="item">
-          {{ item }}
-        </el-option>
-      </el-select>
+      <el-form>
+        <el-form-item label="串口">
+          <el-select v-model="path">
+            <el-option v-for="item in pathList" :key="item" :value="item">
+              {{ item }}
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-select v-model="baudRate">
+            <el-option v-for="item in baudRateList" :key="item" :value="item">
+              {{ item }}
+            </el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+    </div>
+    <div class="example_btn">
+      <el-button type="primary" @click="handleInvoke">调用invoke</el-button>
+      <el-button type="primary" @click="handleAvaiablePorts">
+        获取串口列表
+      </el-button>
+      <el-button type="primary" @click="handleOpen"> 创建串口 </el-button>
+      <el-button type="primary" @click="handleClose"> 关闭串口 </el-button>
+      <el-button type="primary" @click="handleWrite"> 写入串口 </el-button>
+      <el-button type="primary" @click="handleRead"> 读取串口 </el-button>
+      <el-button type="primary" @click="handleListen">
+        添加读取串口监听
+      </el-button>
     </div>
   </div>
 </template>
@@ -35,8 +48,9 @@
   import SerialportHandler from '@/services/SerialportHandler';
 
   const path = ref('COM6');
-  const baudRate = ref(9600);
+  const baudRate = ref(115200);
   const pathList = ref<any>([]);
+  const baudRateList = ref([9600, 115200]);
   const serialport = ref<SerialportHandler>();
 
   const handleInvoke = async () => {
@@ -59,6 +73,7 @@
       const res = new SerialportHandler({
         path: path.value,
         baudRate: baudRate.value,
+        encoding: 'gbk',
       });
       await res.open();
       serialport.value = res;
@@ -104,4 +119,16 @@
     }
   };
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+  .example_window {
+    display: grid;
+    padding: 8px;
+  }
+
+  .example_btn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 8px;
+  }
+</style>

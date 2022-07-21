@@ -3,7 +3,7 @@
  * @Author: zhidal
  * @Date: 2022-07-20 17:02:07
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-21 11:29:06
+ * @LastEditTime: 2022-07-21 13:57:36
  */
 
 import { invoke } from '@tauri-apps/api/tauri';
@@ -76,8 +76,8 @@ class SerialportHandler {
           message: `串口 ${this.path} 未打开!`,
         });
       }
-      this.isRead = false;
-      this.isWrite = false;
+      await this.cancelListen();
+      this.cancelRead();
       await invoke('plugin:serialport_handler|close', {
         path: this.path,
       });
