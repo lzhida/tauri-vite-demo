@@ -3,7 +3,7 @@
  * @Author: zhidal
  * @Date: 2022-07-18 16:58:44
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-20 16:27:50
+ * @LastEditTime: 2022-07-21 09:52:44
  */
 
 use serde::Serialize;
@@ -184,6 +184,7 @@ fn read<R: Runtime>(
     window: Window<R>,
     collection: State<'_, SerialportHandler>,
     path: String,
+    read_event: String,
 ) -> Result<InvokeResult, InvokeResult> {
     if let Ok(mut serialports) = collection.serialports.lock() {
         if let Some(serialport) = serialports.get_mut(&path) {
@@ -192,10 +193,10 @@ fn read<R: Runtime>(
                 Ok(size) => {
                     window
                         .emit(
-                            "serialport-read",
+                            &read_event,
                             ReadData {
                                 data: &serial_buf[..size],
-                                size: size,
+                                size,
                             },
                         )
                         .unwrap();

@@ -3,7 +3,7 @@
  * @Author: zhidal
  * @Date: 2022-07-18 14:10:23
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-20 15:16:52
+ * @LastEditTime: 2022-07-21 10:13:06
 -->
 
 <template>
@@ -31,13 +31,13 @@
 
 <script setup lang="ts">
   import { invoke } from '@tauri-apps/api/tauri';
-  import { appWindow } from '@tauri-apps/api/window';
   import { ref } from 'vue';
+  import SerialportHandler from '@/services/SerialportHandler';
 
   const path = ref('COM6');
   const baudRate = ref(9600);
-  const readListen = ref<any>();
   const pathList = ref<any>([]);
+  const serialport = ref<SerialportHandler>();
 
   const handleInvoke = async () => {
     const res = await invoke('plugin:awesome|do_something');
@@ -45,17 +45,23 @@
   };
 
   const handleAvaiablePorts = async () => {
-    const res = await invoke('plugin:serialport_handler|available_ports');
-    console.log('串口列表 ', res);
-    pathList.value = res;
+    try {
+      const res = await SerialportHandler.available_ports();
+      console.log('串口列表 ', res);
+      pathList.value = res.data;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleOpen = async () => {
     try {
-      const res = await invoke('plugin:serialport_handler|open', {
+      const res = new SerialportHandler({
         path: path.value,
         baudRate: baudRate.value,
       });
+      await res.open();
+      serialport.value = res;
       console.log('open >>>', res);
     } catch (error) {
       console.error(error);
@@ -64,9 +70,7 @@
 
   const handleClose = async () => {
     try {
-      const res = await invoke('plugin:serialport_handler|close', {
-        path: path.value,
-      });
+      const res = await serialport.value?.close();
       console.log('关闭串口', res);
     } catch (error) {
       console.error(error);
@@ -74,10 +78,7 @@
   };
   const handleWrite = async () => {
     try {
-      const res = await invoke('plugin:serialport_handler|write', {
-        path: path.value,
-        value: 'TEST',
-      });
+      const res = await serialport.value?.write('TEST');
       console.log('写入串口', res);
     } catch (error) {
       console.error(error);
@@ -85,9 +86,7 @@
   };
   const handleRead = async () => {
     try {
-      const res = await invoke('plugin:serialport_handler|read', {
-        path: path.value,
-      });
+      const res = await serialport.value?.read();
       console.log('读取串口', res);
     } catch (error) {
       console.error(error);
@@ -96,15 +95,10 @@
 
   const handleListen = async () => {
     try {
-      if (readListen.value) {
-        readListen.value();
-      }
-      readListen.value = await appWindow.listen(
-        'serialport-read',
-        ({ event, payload }) => {
-          console.log('读取串口数据', event, payload);
-        },
-      );
+      const res = await serialport.value?.listen((data) => {
+        console.log('读取设备信息', data);
+      });
+      console.log('监听串口数据', res);
     } catch (error) {
       console.error(error);
     }
