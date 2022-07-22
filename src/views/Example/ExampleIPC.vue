@@ -3,7 +3,7 @@
  * @Author: zhidal
  * @Date: 2022-07-18 14:10:23
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-21 14:19:51
+ * @LastEditTime: 2022-07-22 10:39:03
 -->
 
 <template>
@@ -17,7 +17,7 @@
             </el-option>
           </el-select>
         </el-form-item>
-        <el-form-item>
+        <el-form-item label="波特率">
           <el-select v-model="baudRate">
             <el-option v-for="item in baudRateList" :key="item" :value="item">
               {{ item }}
@@ -73,7 +73,7 @@
       const res = new SerialportHandler({
         path: path.value,
         baudRate: baudRate.value,
-        encoding: 'gbk',
+        // encoding: 'gbk',
       });
       await res.open();
       serialport.value = res;
@@ -127,8 +127,11 @@
 
   .example_btn {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: auto;
     grid-gap: 8px;
+    :deep(button) {
+      margin-left: 0;
+    }
   }
 </style>

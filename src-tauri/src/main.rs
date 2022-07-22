@@ -3,10 +3,7 @@
     windows_subsystem = "windows"
 )]
 
-mod plugins;
-
-use self::plugins::awesome;
-use self::plugins::serialport_handler;
+use tauri_plugin_serialport;
 
 fn main() {
     let context = tauri::generate_context!();
@@ -16,8 +13,7 @@ fn main() {
         } else {
             tauri::Menu::default()
         })
-        .plugin(awesome::init())
-        .plugin(serialport_handler::SerialportHandler::default().build())
+        .plugin(tauri_plugin_serialport::init())
         .run(context)
         .expect("error while running tauri application");
 }

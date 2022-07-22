@@ -378,6 +378,11 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@tauri-apps/api@^1.0.0":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@tauri-apps/api/-/api-1.0.2.tgz#5228720e35d50fd08df87067dc29e7306c1f7a10"
+  integrity sha512-yuNW0oeJ1/ZA7wNF1KgxhHrSu5viPVzY/UgUczzN5ptLM8dH15Juy5rEGkoHfeXGju90Y/l22hi3BtIrp/za+w==
+
 "@tauri-apps/api@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@tauri-apps/api/-/api-1.0.1.tgz#f516cf3b83139312141123c08f1d75260274da50"
@@ -3974,6 +3979,13 @@ supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
+
+"tauri-plugin-serialport-api@https://github.com/lzhida/tauri-plugin-serialport.git#master":
+  version "0.0.1"
+  resolved "https://github.com/lzhida/tauri-plugin-serialport.git#805b6d4fff53db1752741434c8f9b653e588c015"
+  dependencies:
+    "@tauri-apps/api" "^1.0.0"
+    tslib "^2.1.0"
 
 temp-dir@^2.0.0:
   version "2.0.0"

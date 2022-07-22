@@ -3,12 +3,18 @@
  * @Author: zhidal
  * @Date: 2022-07-20 17:02:07
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-21 13:57:36
+ * @LastEditTime: 2022-07-22 10:42:26
  */
 
-import { invoke } from '@tauri-apps/api/tauri';
-import { appWindow } from '@tauri-apps/api/window';
 import { sleep } from '@/utils';
+import {
+  open,
+  close,
+  write,
+  read,
+  listen,
+  available_ports,
+} from 'tauri-plugin-serialport-api';
 class SerialportHandler {
   path: string;
   baudRate: number;
@@ -54,10 +60,7 @@ class SerialportHandler {
           message: `串口 ${this.path} 已经打开!`,
         });
       }
-      await invoke('plugin:serialport_handler|open', {
-        path: this.path,
-        baudRate: this.baudRate,
-      });
+      await open({ path: this.path, baudRate: this.baudRate });
       this.isOpen = true;
     } catch (error) {
       return Promise.reject(error);
@@ -78,9 +81,7 @@ class SerialportHandler {
       }
       await this.cancelListen();
       this.cancelRead();
-      await invoke('plugin:serialport_handler|close', {
-        path: this.path,
-      });
+      return await close(this.path);
     } catch (error) {
       return Promise.reject(error);
     }
@@ -100,10 +101,7 @@ class SerialportHandler {
         });
       }
       this.isWrite = true;
-      await invoke('plugin:serialport_handler|write', {
-        value,
-        path: this.path,
-      });
+      return await write({ path: this.path, value: value });
     } catch (error) {
       return Promise.reject(error);
     } finally {
@@ -127,10 +125,7 @@ class SerialportHandler {
         continue;
       }
       try {
-        await invoke('plugin:serialport_handler|read', {
-          path: this.path,
-          readEvent: this.readEvent,
-        });
+        await read({ path: this.path, readEvent: this.readEvent });
         await sleep(0.2);
       } catch (error) {
         console.error(error);
@@ -154,7 +149,7 @@ class SerialportHandler {
    */
   static async available_ports(): Promise<any> {
     try {
-      const res = await invoke('plugin:serialport_handler|available_ports');
+      const res = await available_ports();
       return Promise.resolve({
         code: 0,
         message: `获取串口列表成功!`,
@@ -173,18 +168,16 @@ class SerialportHandler {
   async listen(fn: (...args: any[]) => void): Promise<any> {
     try {
       await this.cancelListen();
-      this.listener = await appWindow.listen<any>(
-        this.readEvent,
-        ({ payload }) => {
-          try {
-            const decoder = new TextDecoder(this.encoding);
-            const data = decoder.decode(new Uint8Array(payload?.data));
-            fn(data);
-          } catch (error) {
-            console.error(error);
-          }
-        },
-      );
+      this.listener = await listen<any>(this.readEvent, ({ payload }) => {
+        try {
+          console.log('payload ', payload);
+          const decoder = new TextDecoder(this.encoding);
+          const data = decoder.decode(new Uint8Array(payload.data));
+          fn(data);
+        } catch (error) {
+          console.error(error);
+        }
+      });
       return Promise.resolve({
         code: 0,
         message: '添加串口信息成功!',
