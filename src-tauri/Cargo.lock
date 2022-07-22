@@ -2938,8 +2938,8 @@ dependencies = [
 
 [[package]]
 name = "tauri-plugin-serialport"
-version = "0.0.0"
-source = "git+https://github.com/lzhida/tauri-plugin-serialport?branch=master#805b6d4fff53db1752741434c8f9b653e588c015"
+version = "0.0.3"
+source = "git+https://github.com/lzhida/tauri-plugin-serialport?branch=master#b645e90a03f75dae0daaeddac508f8098650cebc"
 dependencies = [
  "serde",
  "serialport",
