@@ -18,7 +18,7 @@ tauri-build = {version = "1.0.2", features = [] }
 serde = {version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 serialport = {version = "4.2.0"}
-tauri = {version = "1.0.2", features = ["api-all"] }
+tauri = {version = "1.0.2", features = ["api-all", "system-tray"] }
 
 [dependencies.tauri-plugin-serialport]
 branch = "master"

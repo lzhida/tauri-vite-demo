@@ -3,16 +3,20 @@
     windows_subsystem = "windows"
 )]
 
+mod services;
+use self::services::{menu, tray};
 use tauri_plugin_serialport;
 
 fn main() {
     let context = tauri::generate_context!();
     tauri::Builder::default()
-        .menu(if cfg!(target_os = "macos") {
-            tauri::Menu::os_default(&context.package_info().name)
-        } else {
-            tauri::Menu::default()
+        // .menu()
+        .menu(menu::new())
+        .on_menu_event(|event| {
+            menu::menu_event(event);
         })
+        .system_tray(tray::new())
+        .on_system_tray_event(|app, event| tray::add_tary_event(app, event))
         .plugin(tauri_plugin_serialport::init())
         .run(context)
         .expect("error while running tauri application");

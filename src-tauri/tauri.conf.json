@@ -61,6 +61,10 @@
         "title": "Tauri Vite Demo",
         "width": 800
       }
-    ]
+    ],
+    "systemTray": {
+      "iconAsTemplate": true,
+      "iconPath": "icons/icon.png"
+    }
   }
 }
