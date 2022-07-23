@@ -3,7 +3,7 @@
  * @Author: zhidal
  * @Date: 2022-07-20 17:02:07
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-22 10:42:26
+ * @LastEditTime: 2022-07-23 11:00:09
  */
 
 import { sleep } from '@/utils';
@@ -168,7 +168,7 @@ class SerialportHandler {
   async listen(fn: (...args: any[]) => void): Promise<any> {
     try {
       await this.cancelListen();
-      this.listener = await listen<any>(this.readEvent, ({ payload }) => {
+      this.listener = await listen(this.readEvent, ({ payload }) => {
         try {
           console.log('payload ', payload);
           const decoder = new TextDecoder(this.encoding);
