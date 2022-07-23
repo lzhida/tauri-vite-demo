@@ -5,9 +5,10 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
+  import { computed, onMounted } from 'vue';
   import { i18n } from '@/i18n';
   import zhLocale from 'element-plus/lib/locale/lang/zh-cn';
+  import { closeSplashscreen } from './services/command';
 
   const locale = computed(() => {
     if (i18n.global.messages) {
@@ -15,6 +16,10 @@
     } else {
       return zhLocale;
     }
+  });
+
+  onMounted(async () => {
+    await closeSplashscreen();
   });
 </script>
 

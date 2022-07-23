@@ -4,13 +4,13 @@
 )]
 
 mod services;
-use self::services::{menu, tray};
+use self::services::{command, menu, tray};
 use tauri_plugin_serialport;
 
 fn main() {
     let context = tauri::generate_context!();
     tauri::Builder::default()
-        // .menu()
+        .invoke_handler(tauri::generate_handler![command::close_splashscreen])
         .menu(menu::new())
         .on_menu_event(|event| {
             menu::menu_event(event);
