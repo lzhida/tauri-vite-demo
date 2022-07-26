@@ -6,6 +6,7 @@
 mod services;
 use self::services::{command, menu, tray};
 use tauri_plugin_serialport;
+use tauri_plugin_store::PluginBuilder;
 
 fn main() {
     let context = tauri::generate_context!();
@@ -18,6 +19,7 @@ fn main() {
         .system_tray(tray::new())
         .on_system_tray_event(|app, event| tray::add_tary_event(app, event))
         .plugin(tauri_plugin_serialport::init())
+        .plugin(PluginBuilder::default().build())
         .run(context)
         .expect("error while running tauri application");
 }
