@@ -28,6 +28,10 @@ git = "https://github.com/lzhida/tauri-plugin-serialport"
 branch = "dev"
 git = "https://github.com/tauri-apps/tauri-plugin-store"
 
+[dependencies.tauri-plugin-log]
+branch = "dev"
+git = "https://github.com/tauri-apps/tauri-plugin-log"
+
 [features]
 # by default Tauri runs in production mode
 # when `tauri dev` runs it is executed with `cargo run --no-default-features` if `devPath` is an URL

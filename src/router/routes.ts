@@ -3,7 +3,7 @@
  * @Author: zhidal
  * @Date: 2022-04-07 17:38:03
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-26 15:26:57
+ * @LastEditTime: 2022-07-27 10:13:16
  */
 import HomePage from '@/views/HomePage.vue';
 import { RouteRecordRaw } from 'vue-router';
@@ -11,6 +11,7 @@ import ExampleHome from '@/views/Example/ExampleHome.vue';
 import ExampleWindow from '@/views/Example/ExampleWindow.vue';
 import ExampleIPC from '@/views/Example/ExampleIPC.vue';
 import ExampleStore from '@/views/Example/ExampleStore.vue';
+import ExampleLog from '@/views/Example/ExampleLog.vue';
 import { RouteName, RoutePath } from '@/enums/example';
 
 const routes: RouteRecordRaw[] = [
@@ -39,6 +40,11 @@ const routes: RouteRecordRaw[] = [
         path: RoutePath.Store,
         name: RouteName.Store,
         component: ExampleStore,
+      },
+      {
+        path: RoutePath.Log,
+        name: RouteName.Log,
+        component: ExampleLog,
       },
     ],
   },

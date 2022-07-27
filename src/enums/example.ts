@@ -3,7 +3,7 @@
  * @Author: zhidal
  * @Date: 2022-07-16 16:03:49
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-26 15:25:27
+ * @LastEditTime: 2022-07-27 10:11:38
  */
 
 export enum RoutePath {
@@ -11,6 +11,7 @@ export enum RoutePath {
   Home = '/example',
   IPC = '/ipc',
   Store = '/store',
+  Log = '/log',
 }
 
 export enum RouteName {
@@ -18,4 +19,5 @@ export enum RouteName {
   Home = '示例首页',
   IPC = '前后端通信',
   Store = 'Store 示例',
+  Log = '日志示例',
 }
