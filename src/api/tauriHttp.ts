@@ -1,19 +1,21 @@
 /*
- * @Description:
+ * @Description: tauri http 模块 用于跨域请求
  * @Author: zhidal
- * @Date: 2022-07-12 10:59:54
+ * @Date: 2022-07-30 10:14:52
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-30 10:17:03
+ * @LastEditTime: 2022-07-30 10:17:56
  */
 
 import axios, { AxiosRequestConfig } from 'axios';
+import axiosTauriAdapter from 'axios-tauri-adapter';
 import qs from 'qs';
 import config from './config';
 
 const instance = axios.create({
   // TODO: 修改 baseURL
-  baseURL: config.baseUrl,
+  baseURL: config.tauriUrl,
   timeout: 60 * 1000,
+  adapter: axiosTauriAdapter,
 });
 
 enum ContentType {
