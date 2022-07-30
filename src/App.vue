@@ -8,7 +8,7 @@
   import { computed, onMounted } from 'vue';
   import { i18n } from '@/i18n';
   import zhLocale from 'element-plus/lib/locale/lang/zh-cn';
-  import { closeSplashscreen } from './services/command';
+  import commands from './services/commands';
 
   const locale = computed(() => {
     if (i18n.global.messages) {
@@ -19,7 +19,7 @@
   });
 
   onMounted(async () => {
-    await closeSplashscreen();
+    await commands.closeSplashscreen();
   });
 </script>
 

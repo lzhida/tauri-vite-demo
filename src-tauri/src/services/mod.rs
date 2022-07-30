@@ -1,3 +1,3 @@
-pub mod command;
+pub mod commands;
 pub mod menu;
 pub mod tray;

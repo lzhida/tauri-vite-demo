@@ -4,7 +4,7 @@
 )]
 
 mod services;
-use self::services::{command, menu, tray};
+use self::services::{commands, menu, tray};
 use tauri_plugin_log::{LogTarget, LoggerBuilder};
 use tauri_plugin_serialport;
 use tauri_plugin_store::PluginBuilder;
@@ -13,7 +13,10 @@ fn main() {
     let context = tauri::generate_context!();
     let targets = [LogTarget::LogDir, LogTarget::Stdout, LogTarget::Webview];
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![command::close_splashscreen])
+        .invoke_handler(tauri::generate_handler![
+            commands::close_splashscreen,
+            commands::toggle_devtools
+        ])
         .menu(menu::new())
         .on_menu_event(|event| {
             menu::menu_event(event);
