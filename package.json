@@ -1,7 +1,7 @@
 {
   "name": "tauri-vite-demo",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.2.0",
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
     "commit": "git add . && npm lint && git cz",

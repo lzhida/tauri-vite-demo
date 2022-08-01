@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "tauri-vite-demo",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "tauri": {
     "allowlist": {
@@ -55,7 +55,10 @@
       "csp": null
     },
     "updater": {
-      "active": false
+      "active": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDJFRDlGMDYwMjAxODE3NEEKUldSS0Z4Z2dZUERaTGdCRlczTHIzZjhhaThsbXFWSXhUYzZacG5tZmxMeEMzS2FEVDg4WFJrc2oK",
+      "dialog": true,
+      "endpoints": ["https://127.0.0.1:3001/update"]
     },
     "windows": [
       {
