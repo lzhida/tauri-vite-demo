@@ -1,0 +1,19 @@
+{
+  "version": "v1.0.0",
+  "notes": "Test version",
+  "pub_date": "2022-08-02T19:25:57Z",
+  "platforms": {
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHJzaWduIGVuY3J5cHRlZCBzZWNyZXQga2V5ClJXUlRZMEl5aUFqTzNCWmw4bDMvNml4YXNPbXBjdnYyWDFVUUtEd2JmZVUwYlk0VDYvc0FBQkFBQUFBQUFBQUFBQUlBQUFBQWh4SkN4K3grTWNHYk9SMzA5NEZyNE9JU21QU3lNRlVwOUE1eVBKMjdFbm9CYnFuRFc0UitZVFhLU0pZS2lCb1NFU0FqZGpkY0lHWmxSWm8xc3FMcW1tSytjb0JnQ0lRR1QxR1JCTmFURmI1UFQwb3dSQmVocFBab1dYaFZqekVzVzVFek5lL0ZjVUE9Cg==",
+      "url": "https://gitee.com/zhidal/tauri-vite-demo/attach_files/1144183/download/tauri-vite-demo_0.2.0_x64_zh-CN.msi.zip"
+    },
+    "darwin-aarch64": {
+      "signature":  "dW50cnVzdGVkIGNvbW1lbnQ6IHJzaWduIGVuY3J5cHRlZCBzZWNyZXQga2V5ClJXUlRZMEl5aUFqTzNCWmw4bDMvNml4YXNPbXBjdnYyWDFVUUtEd2JmZVUwYlk0VDYvc0FBQkFBQUFBQUFBQUFBQUlBQUFBQWh4SkN4K3grTWNHYk9SMzA5NEZyNE9JU21QU3lNRlVwOUE1eVBKMjdFbm9CYnFuRFc0UitZVFhLU0pZS2lCb1NFU0FqZGpkY0lHWmxSWm8xc3FMcW1tSytjb0JnQ0lRR1QxR1JCTmFURmI1UFQwb3dSQmVocFBab1dYaFZqekVzVzVFek5lL0ZjVUE9Cg==",
+      "url": "https://gitee.com/zhidal/tauri-vite-demo/attach_files/1144183/download/tauri-vite-demo_0.2.0_x64_zh-CN.msi.zip"
+    },
+    "windows-x86_64": {
+      "signature":   "dW50cnVzdGVkIGNvbW1lbnQ6IHJzaWduIGVuY3J5cHRlZCBzZWNyZXQga2V5ClJXUlRZMEl5aUFqTzNCWmw4bDMvNml4YXNPbXBjdnYyWDFVUUtEd2JmZVUwYlk0VDYvc0FBQkFBQUFBQUFBQUFBQUlBQUFBQWh4SkN4K3grTWNHYk9SMzA5NEZyNE9JU21QU3lNRlVwOUE1eVBKMjdFbm9CYnFuRFc0UitZVFhLU0pZS2lCb1NFU0FqZGpkY0lHWmxSWm8xc3FMcW1tSytjb0JnQ0lRR1QxR1JCTmFURmI1UFQwb3dSQmVocFBab1dYaFZqekVzVzVFek5lL0ZjVUE9Cg==",
+      "url": "https://gitee.com/zhidal/tauri-vite-demo/attach_files/1144183/download/tauri-vite-demo_0.2.0_x64_zh-CN.msi.zip"
+    }
+  }
+}
