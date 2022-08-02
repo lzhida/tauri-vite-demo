@@ -3,7 +3,7 @@
  * @Author: zhidal
  * @Date: 2022-07-16 15:52:27
  * @LastEditors: zhidal
- * @LastEditTime: 2022-07-27 10:11:55
+ * @LastEditTime: 2022-08-01 19:04:36
  */
 
 import { RouteName, RoutePath } from '@/enums/example';
@@ -24,6 +24,10 @@ const exampleMenu = [
   {
     path: RoutePath.Log,
     label: RouteName.Log,
+  },
+  {
+    path: RoutePath.Update,
+    label: RouteName.Update,
   },
 ];
 export default exampleMenu;
